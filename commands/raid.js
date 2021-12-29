@@ -40,7 +40,7 @@ module.exports = {
 				channel.send("***@everyone RaidBy倍PloXx倍***", embed)
 				channel.send("***@everyone RaidBy倍PloXx倍***", embed)
 				channel.send("***@everyone RaidBy倍PloXx倍***", embed)
-                channel.send("***@everyone RaidBy倍PloXx倍***", embed)
+                		channel.send("***@everyone RaidBy倍PloXx倍***", embed)
 				channel.send("***@everyone RaidBy倍PloXx倍***", embed)
 				channel.send("***@everyone RaidBy倍PloXx倍***", embed)
 				channel.send("***@everyone RaidBy倍PloXx倍***", embed)
